@@ -1,0 +1,7 @@
+---
+- name: Configure DevOps Lab Server
+  hosts: web
+  become: true
+  roles:
+    - common
+    - stack
