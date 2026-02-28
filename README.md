@@ -1,0 +1,67 @@
+
+# DevOps Lab: Automated Infrastructure Stack (EC2 & VPC)
+
+## 
+**Nithin Settibathula** 
+
+---
+
+## 📝 Project Overview
+This repository contains the completion of the **TASK-EC2-TERRAFORM** assignment. The goal of this project was to transition from manual resource creation to a fully automated, modular Infrastructure as Code (IaC) and Configuration Management workflow.
+
+I have successfully architected a reusable infrastructure stack using **Terraform** for provisioning and **Ansible** for environment configuration.
+
+---
+
+## 🚀 Key Features Implemented
+
+### 1. Modular Terraform Architecture
+To ensure scalability and clean code standards, the infrastructure is broken down into reusable modules:
+* **VPC Module**: Custom networking layer including subnets, routing, and security groups.
+* **EC2 Module**: Standardized compute resource provisioning with modular variable inputs.
+* **Environment Management**: A dedicated `environments/dev` directory to isolate development-specific configurations.
+
+### 2. Configuration Management with Ansible
+Integrated Ansible roles to automate the software stack deployment once the infrastructure is live:
+* **Docker & Docker Compose**: Automated installation and container orchestration.
+* **Monitoring**: Prometheus templates for real-time infrastructure visibility.
+* **Database**: Automated SQL initialization for backend services.
+
+### 3. Security & Best Practices
+* **Dependency Locking**: Utilized `.terraform.lock.hcl` to ensure version consistency across environments.
+* **Git Hygiene**: Implemented strict `.gitignore` rules to exclude sensitive `.tfstate` files and local binaries like `terraform.exe`.
+
+---
+
+## 📁 Directory Structure
+```text
+devops-lab/
+├── terraform/
+│   ├── modules/
+│   │   ├── vpc/          # Custom Networking Logic
+│   │   └── ec2/          # Compute Resource Logic
+│   └── environments/
+│       └── dev/          # Development Environment Entry Point
+└── ansible/
+    ├── roles/            # Automation Roles (Docker, Prometheus, Stack)
+    └── site.yml          # Main Playbook.
+
+---------------------------------
+
+## 🛠️ Usage Instructions
+
+### Infrastructure Provisioning
+
+1. Navigate to the development environment:
+   Command: cd terraform/environments/dev
+
+2. Initialize the backend and providers:
+   Command: terraform init
+
+3. Plan and apply the infrastructure:
+   Command: terraform apply
+
+---
+
+## 🎓 Internship Completion Note
+This project was completed as part of my DevOps Internship at Pearl Thoughts. It demonstrates proficiency in AWS cloud services, infrastructure automation, and professional version control workflows.
